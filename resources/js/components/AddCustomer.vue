@@ -73,14 +73,15 @@
        },
        methods:{
          register () {
-            const requestOptions = {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ title: "Post Customer Data" })
-            };
-            fetch("http://localhost:8000/api/customers", requestOptions)
-                .then(response => response.json())
-                .then(data => (this.postId = data.id));
+            console.log('register', this.addData);
+            // const requestOptions = {
+            //     method: "POST",
+            //     headers: { "Content-Type": "application/json" },
+            //     body: JSON.stringify({ title: "Post Customer Data" })
+            // };
+            // fetch("http://localhost:8000/api/customers", requestOptions)
+            //     .then(response => response.json())
+            //     .then(data => (this.postId = data.id));
         },
         add () {
             this.addData.push({

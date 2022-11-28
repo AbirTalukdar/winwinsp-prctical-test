@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\Customer;
+use App\Models\Customer;
 
 class CustomerController extends Controller
 {
@@ -35,7 +35,13 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $customer = new Customer;
+        $customer->code = $request->code;
+        $customer->name = $request->full_name;
+        $customer->age = $request->age;
+        $customer->area_id = $request->location;
+
+        $customer->save();
     }
 
     /**

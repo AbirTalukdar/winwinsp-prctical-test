@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Area;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Customer extends Model
 {
@@ -13,4 +14,9 @@ class Customer extends Model
         'code',
         'age',
     ];
+
+    public function areas()
+    {
+        return $this->belongsToMany(Area::class)->with('area:id');
+    }
 }
