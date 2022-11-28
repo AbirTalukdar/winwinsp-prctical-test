@@ -18,6 +18,8 @@ return new class extends Migration
             $table->integer('code')->nullable();
             $table->string('name', 100);
             $table->integer('age')->nullable();
+            $table->unsignedBigInteger('area_id');
+            $table->foreign('area_id')->references('id')->on('areas');
             $table->timestamps();
         });
     }
