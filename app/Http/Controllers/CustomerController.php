@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Models\Customer;
 
 class CustomerController extends Controller
 {
@@ -34,7 +35,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**

@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center mt-8">
-            <div class="col-md-12">
+        <div class="row justify-content-center">
+            <div class="col-md-12 mt-5">
                 <div class="card">
                     <div class="card-header">WWSP</div>
                     <form @submit.prevent="register">
@@ -12,7 +12,7 @@
                                 <th scope="col">Code</th>
                                 <th scope="col">Full Name</th>
                                 <th scope="col">Age</th>
-                                <th scope="col">Location</th>
+                                <th scope="col"><button class="dropdown-toggle" data-toggle="dropdown">Location</button></th>
                                 <th scope="col"><button type="button" class="btn btn-sm btn-primary mt-3" @click.prevent="add()">+</button></th>
 
                                 </tr>
@@ -26,12 +26,10 @@
                                     <td><button v-if="i > 0" type="button" class="btn btn-sm btn-danger mt-0" @click="remove(i)">-</button></td>
                                     </tr>
                                 </tbody>
-                                <div class="row">
-                                    <div class="justify-content-end">
-                                        <button type="submit" class="btn btn-primary mr-2">Save</button>
-                                    </div>
-                                </div>
                             </table>
+                        </div>
+                        <div class="justify-content-end">
+                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -41,9 +39,12 @@
 </template>
 
 <script>
+// import axios from 'axios';
     export default {
        data () {
         return {
+            api1: 'http://localhost:8000/api/areas/',
+            api2: 'http://localhost:8000/api/custommers/',
             addData: [
                 {
                     code: '',
@@ -54,10 +55,15 @@
             ]
         }
        },
+       mounted(){
+        this.axios.get(this.api1).then(res => {
+            console.log(res);
+        })
+       },
        methods:{
-        async register () {
+         register () {
             console.log(this.addData);
-            await axios.post(this.api, this.data)
+            axios.post(this.api, this.data)
         },
         add () {
             this.addData.push({
