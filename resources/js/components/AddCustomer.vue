@@ -57,7 +57,7 @@
        methods:{
         async register () {
             console.log(this.addData);
-            await RestApi.postData(disabilitySchoolServiceBaseUrl, transportationManagementStoreApi, this.data)
+            await axios.post(this.api, this.data)
         },
         add () {
             this.addData.push({

@@ -19,4 +19,4 @@ use App\Http\Controllers\CustomerController;
 //     return $request->user();
 // });
 
-Route::resource('customers', 'CustomerController');
+Route::resource('customers', CustomerController::class);
