@@ -50,8 +50,6 @@
     export default {
        data () {
         return {
-            api1: 'http://localhost:8000/api/areas/',
-            api2: 'http://localhost:8000/api/custommers/',
             areas: {},
             addData: [
                 {
