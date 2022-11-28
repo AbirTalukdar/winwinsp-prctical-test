@@ -12,7 +12,7 @@
                                 <th scope="col">Code</th>
                                 <th scope="col">Full Name</th>
                                 <th scope="col">Age</th>
-                                <th scope="col"><button class="dropdown-toggle" data-toggle="dropdown">Location</button></th>
+                                <th scope="col">Location</th>
                                 <th scope="col"><button type="button" class="btn btn-sm btn-primary mt-3" @click.prevent="add()">+</button></th>
 
                                 </tr>
@@ -22,7 +22,14 @@
                                     <td scope="row"><input v-model="item.code"/></td>
                                     <td><input v-model="item.full_name"/></td>
                                     <td><input v-model="item.age"/></td>
-                                    <td><input v-model="item.location"/></td>
+                                    <td>
+                                        <select v-model="item.location">
+                                            <!-- <option value="">Select Location</option> -->
+                                            <option v-for="item in areas" :key="item.id" :value="item.id">
+                                            {{ item.name }}
+                                        </option>
+                                        </select>
+                                    </td>
                                     <td><button v-if="i > 0" type="button" class="btn btn-sm btn-danger mt-0" @click="remove(i)">-</button></td>
                                     </tr>
                                 </tbody>
@@ -45,6 +52,7 @@
         return {
             api1: 'http://localhost:8000/api/areas/',
             api2: 'http://localhost:8000/api/custommers/',
+            areas: {},
             addData: [
                 {
                     code: '',
@@ -56,9 +64,12 @@
         }
        },
        mounted(){
-        this.axios.get(this.api1).then(res => {
-            console.log(res);
-        })
+            fetch(`http://localhost:8000/api/areas`, { method: 'GET' })
+            .then(response => response.json()).then( (data)=>{
+                console.log(data);
+                this.areas = data;
+                console.log('this area', this.area);
+            })
        },
        methods:{
          register () {
