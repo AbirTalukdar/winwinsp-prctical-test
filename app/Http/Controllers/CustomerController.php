@@ -35,6 +35,7 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         $customer = new Customer;
         $customer->code = $request->code;
         $customer->name = $request->name;

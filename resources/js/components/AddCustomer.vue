@@ -71,7 +71,7 @@
        },
        methods:{
          register () {
-            //console.log('register', this.addData);
+            console.log('register', this.addData);
             const requestOptions = {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -84,9 +84,9 @@
         add () {
             this.addData.push({
                     code: '',
-                    full_name: '',
+                    name: '',
                     age: '',
-                    location:''
+                    area_id:''
             })
         },
         remove (index, id) {
