@@ -20,10 +20,10 @@
                                 <tbody v-for="(item, i) in addData" :key="i">
                                     <tr>
                                     <td scope="row"><input v-model="item.code"/></td>
-                                    <td><input v-model="item.full_name"/></td>
+                                    <td><input v-model="item.name"/></td>
                                     <td><input v-model="item.age"/></td>
                                     <td>
-                                        <select v-model="item.location">
+                                        <select v-model="item.area_id">
                                             <!-- <option value="">Select Location</option> -->
                                             <option v-for="item in areas" :key="item.id" :value="item.id">
                                             {{ item.name }}
@@ -56,9 +56,9 @@
             addData: [
                 {
                     code: '',
-                    full_name: '',
+                    name: '',
                     age: '',
-                    location:''
+                    area_id:''
                 }
             ]
         }
@@ -73,15 +73,15 @@
        },
        methods:{
          register () {
-            console.log('register', this.addData);
-            // const requestOptions = {
-            //     method: "POST",
-            //     headers: { "Content-Type": "application/json" },
-            //     body: JSON.stringify({ title: "Post Customer Data" })
-            // };
-            // fetch("http://localhost:8000/api/customers", requestOptions)
-            //     .then(response => response.json())
-            //     .then(data => (this.postId = data.id));
+            //console.log('register', this.addData);
+            const requestOptions = {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ title: "Post Customer Data" })
+            };
+            fetch("http://localhost:8000/api/customers", requestOptions)
+                .then(response => response.json())
+                .then(data => (this.postId = data.id));
         },
         add () {
             this.addData.push({

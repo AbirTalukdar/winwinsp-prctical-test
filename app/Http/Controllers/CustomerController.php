@@ -37,9 +37,9 @@ class CustomerController extends Controller
     {
         $customer = new Customer;
         $customer->code = $request->code;
-        $customer->name = $request->full_name;
+        $customer->name = $request->name;
         $customer->age = $request->age;
-        $customer->area_id = $request->location;
+        $customer->area_id = $request->area_id;
 
         $customer->save();
     }
