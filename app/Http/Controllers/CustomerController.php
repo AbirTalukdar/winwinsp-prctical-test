@@ -42,6 +42,11 @@ class CustomerController extends Controller
         $customer->area_id = $request->area_id;
 
         $customer->save();
+        if($customer->save()){
+            return ['success'=>'Data Saved Successfully'];
+        } else{
+            return ['success'=>"Data Can Not Save"];
+        }
     }
 
     /**

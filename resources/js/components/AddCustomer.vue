@@ -68,7 +68,7 @@
             .then(response => response.json()).then( (data)=>{
                 console.log(data);
                 this.areas = data;
-                console.log('this area', this.area);
+                console.log('this area', this.areas);
             })
        },
        methods:{
@@ -81,7 +81,7 @@
             };
             fetch("http://localhost:8000/api/customers", requestOptions)
                 .then(response => response.json())
-                .then(data => (this.postId = data.id));
+                .then(data => (this.addData = data.id));
         },
         add () {
             this.addData.push({
