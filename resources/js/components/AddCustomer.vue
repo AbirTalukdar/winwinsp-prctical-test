@@ -20,7 +20,7 @@
                                 </thead>
                                     <tbody v-for="(item, i) in addData" :key="i">
                                         <tr>
-                                        <td scope="row"><input v-model="item.code"/></td>
+                                        <td><input v-model="item.code"/></td>
                                         <td><input v-model="item.name"/></td>
                                         <td><input v-model="item.age"/></td>
                                         <td>
