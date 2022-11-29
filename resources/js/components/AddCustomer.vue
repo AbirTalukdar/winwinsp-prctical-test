@@ -1,47 +1,48 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12 mt-5">
-                <div class="card">
-                    <div class="card-header">WWSP</div>
-                    <form @submit.prevent="register">
-                        <div class="card-body">
-                            <table class="table mt-2">
-                            <thead>
-                                <tr>
-                                <th scope="col">Code</th>
-                                <th scope="col">Full Name</th>
-                                <th scope="col">Age</th>
-                                <th scope="col">Location</th>
-                                <th scope="col"><button type="button" class="btn btn-sm btn-primary mt-3" @click.prevent="add()">+</button></th>
+        <form @submit.prevent="register">
+            <div class="row justify-content-center">
+                <div class="col-md-12 mt-5">
+                    <div class="card">
+                        <div class="card-header">WWSP</div>
 
-                                </tr>
-                            </thead>
-                                <tbody v-for="(item, i) in addData" :key="i">
+                            <div class="card-body">
+                                <table class="table mt-2">
+                                <thead>
                                     <tr>
-                                    <td scope="row"><input v-model="item.code"/></td>
-                                    <td><input v-model="item.name"/></td>
-                                    <td><input v-model="item.age"/></td>
-                                    <td>
-                                        <select v-model="item.area_id">
-                                            <!-- <option value="">Select Location</option> -->
-                                            <option v-for="item in areas" :key="item.id" :value="item.id">
-                                            {{ item.name }}
-                                        </option>
-                                        </select>
-                                    </td>
-                                    <td><button v-if="i > 0" type="button" class="btn btn-sm btn-danger mt-0" @click="remove(i)">-</button></td>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Full Name</th>
+                                    <th scope="col">Age</th>
+                                    <th scope="col">Location</th>
+                                    <th scope="col"><button type="button" class="btn btn-sm btn-primary mt-3" @click.prevent="add()">+</button></th>
+
                                     </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="justify-content-end">
-                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        </div>
-                    </form>
+                                </thead>
+                                    <tbody v-for="(item, i) in addData" :key="i">
+                                        <tr>
+                                        <td scope="row"><input v-model="item.code"/></td>
+                                        <td><input v-model="item.name"/></td>
+                                        <td><input v-model="item.age"/></td>
+                                        <td>
+                                            <select v-model="item.area_id">
+                                                <!-- <option value="">Select Location</option> -->
+                                                <option v-for="item in areas" :key="item.id" :value="item.id">
+                                                {{ item.name }}
+                                            </option>
+                                            </select>
+                                        </td>
+                                        <td><button v-if="i > 0" type="button" class="btn btn-sm btn-danger mt-0" @click="remove(i)">-</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                    </div>
                 </div>
             </div>
-        </div>
+            <div class="d-flex justify-content-end mt-2">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
     </div>
 </template>
 
